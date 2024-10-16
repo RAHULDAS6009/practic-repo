@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-
+const cors=require("cors");
+app.use(cors());
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
