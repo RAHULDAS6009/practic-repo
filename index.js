@@ -27,13 +27,6 @@ app.get("/notifications", (req, res) => {
     network: getRandomNumber(10),
   });
 });
-
-// Route to get up to 3 todos
-app.get("/todos", (req, res) => {
-  const limitedTodos = todos.slice(0, 3); // Return only the first 3 todos
-  res.json(limitedTodos);
-});
-
 // Route to get a specific todo by ID
 app.get("/todos", (req, res) => {
   const { id } = req.query; // Extract the "id" from the query string
@@ -49,6 +42,13 @@ app.get("/todos", (req, res) => {
     res.json(todos.slice(0, 3)); // Return the first 3 todos by default
   }
 });
+// Route to get up to 3 todos
+app.get("/todos", (req, res) => {
+  const limitedTodos = todos.slice(0, 3); // Return only the first 3 todos
+  res.json(limitedTodos);
+});
+
+
 
 // Start the server
 app.listen(3000, () => {
